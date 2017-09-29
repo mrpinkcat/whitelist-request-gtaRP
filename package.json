@@ -1,0 +1,16 @@
+{
+  "name": "whitelist-GTA_RP",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "repository": "",
+  "author": "ANIZAN G. <https://github.com/mrpinkcat>",
+  "dependencies": {
+    "express": "^4.15.2",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
+    "http-auth": "^3.1.3",
+    "node-json-db": "^0.7.3",
+    "socket.io": "^1.7.3"
+  }
+}

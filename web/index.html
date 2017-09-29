@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>WhiteList GTA RP</title>
+  <link id="favicon" rel="shortcut icon" type="image/png" href="img/main-fav.png" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/main.css" type="text/css" />
+</head>
+
+<body>
+  <div class="loading">
+    <div class="vcenter spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+  </div>
+  <div class="err-ipblock" style="display: none;">
+    <div class="vcenter text-danger text-center">
+      <h1><strong>ERREUR <i class="fa fa-exclamation"></i></strong></h1>
+      <p class="lead">Votre bloqueur de pub est activé...<br>Pour que ce service fonctionne vous devez désactiver votre bloqueur de pub</p>
+      <p><small>Si vous pensez que c'est une erreur, rechargez la page</small></p>
+    </div>
+  </div>
+  <div class="err-nocapcha" style="display: none;">
+    <div class="vcenter text-danger text-center">
+      <h1><strong>ERREUR <i class="fa fa-exclamation"></i></strong></h1>
+      <p class="lead">Vous n'avez pas completé le captcha</p>
+      <div class="btn btn-lg btn-danger" id="back">Retour <i class="fa fa-arrow-left"></i></div>
+    </div>
+  </div>
+  <div class="err-noexp" style="display: none;">
+    <div class="vcenter text-danger text-center">
+      <h1><strong>ERREUR <i class="fa fa-exclamation"></i></strong></h1>
+      <p class="lead">Vous n'avez pas renseigné tous les champs</p>
+      <div class="btn btn-lg btn-danger" id="back-exp">Retour <i class="fa fa-arrow-left"></i></div>
+    </div>
+  </div>
+  <div class="success" style="display: none;">
+    <div class="vcenter text-success text-center">
+      <h1><strong>BRAVO <i class="fa fa-exclamation"></i></strong></h1>
+      <p class="lead">Vous avez été whitelist sur le seveur <span id="server-name"></span><br> Vous pouvez vous y connecter sur l'IP <span id="server-ip"></span></p>
+    </div>
+  </div>
+  <div class="waiting" style="display: none;">
+    <div class="vcenter text-warning text-center">
+      <h1><strong>EN ATTENTE <i class="fa fa-exclamation"></i></strong></h1>
+      <p class="lead">Votre demande de whitelist a bien été envoyée mais n'a pas encore été traitée.<br>Revenez sur ce site regulierement pour savoir si vous avez été accepté.</p>
+    </div>
+  </div>
+  <div class="bc" style="display: none;">
+    <div class="vcenter">
+      <h1><b><u>Demande de whitelist</u></b></h1>
+      <p class="lead" id="requirement">Pour être whitelist sur le serveur GTA RP vous devez indiquer votre nom RP et vos motivations.</p>
+      <p><textarea type="text" name="exp" id="exp" rows="5" class="form-control" placeholder="/!\ L'orthographe peut être rédhibitoire /!\"></textarea></p>
+      <div class="text-xs-center" id="recaptcha-div">
+        <div class="g-recaptcha" data-sitekey="6LezRR0UAAAAAJn0iSOWil6diIgkD0A9Hqpj1B7X"></div>
+        <!--CHANGER LA DATA SITE KEY ICI https://www.google.com/recaptcha/admin-->
+      </div>
+      <p><a class="btn btn-lg btn-default" id="submit">Envoyer ma demande</a></p>
+    </div>
+  </div>
+
+  <div class="footer text-center">
+    <p>Système créé pour <strong><i><span id="server-name">SERVEUR NAME</span></i></strong> par <strong><i>Mr Pink</i></strong></p>
+  </div>
+
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js" integrity="sha256-WKvqiY0jZHWQZIohYEmr9KUC5rEaYEOFTq+ByllJK8w=" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="js/main.js"></script>
+</body>
+
+</html>

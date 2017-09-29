@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>WhiteList SERVEUR - GTA RP</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="panel/css/main.css" type="text/css" />
+</head>
+
+<body>
+  <div class="loading">
+    <div class="vcenter spinner">
+      <div class="bounce1"></div>
+      <div class="bounce2"></div>
+      <div class="bounce3"></div>
+    </div>
+  </div>
+  <div class="req-perm" style="display: none;">
+    <div class="vcenter text-danger text-center">
+      <h1><strong>NOTIFICATION <i class="fa fa-bell"></i></strong></h1>
+      <p class="lead">Pour être averti quand un utilisateur poste une demande de whitelist activez les notifications</p>
+      <div class="btn btn-lg btn-danger" id="req-perm">Activer les notifications</div>
+    </div>
+  </div>
+  <div class="choice vcenter container text-center" style="display: none;">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card">
+          <img class="card-img-top" src="panel/img/waiting.png" alt="Card image cap">
+          <div class="card-block">
+            <h4 class="card-title">Demandes en attentes</h4>
+            <!--<p class="card-text">Vous trouverez ici toutes les demandes de whitelists qui n'ont pas reçu de réponse.</p>-->
+            <a id="waiting-btn" class="btn btn-default">Voir</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <img class="card-img-top" src="panel/img/sucess.png" alt="Card image cap">
+          <div class="card-block">
+            <h4 class="card-title">Demandes acceptées</h4>
+            <!--<p class="card-text">Vous trouverez ici toutes les options de configurations web.</p>-->
+            <a id="accepted-btn" class="btn btn-default">Voir</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <img class="card-img-top" src="panel/img/denie.png" alt="Card image cap">
+          <div class="card-block">
+            <h4 class="card-title">Demandes refusées</h4>
+            <!--<p class="card-text">Vous trouverez ici toutes les demandes de whitelists qui ont été refusées.</p>-->
+            <a id="denie-btn" class="btn btn-default">Voir</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-3">
+        <div class="card">
+          <img class="card-img-top" src="panel/img/gears.png" alt="Card image cap">
+          <div class="card-block">
+            <h4 class="card-title">Configuration</h4>
+            <!--<p class="card-text">Vous trouverez ici toutes les options de configurations web.</p>-->
+            <a id="conf-btn" class="btn btn-default">Voir</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="waiting" style="display: none;">
+    <a class="retrun-btn btn btn-danger"><i class="fa fa-arrow-left"></i> Retour</a>
+    <div id="whitelist-list" class="vcenter">
+      <h1 class="text-center"><b>Demandes de whitelist :</b></h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>IP</th>
+            <th>Message</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="table">
+        </tbody>
+      </table>
+    </div>
+    <div id="whitelist-none" class="vcenter text-warning text-center" style="display: none;">
+      <h1><strong>Pas de demande de whitelist <i class="fa fa-frown-o"></i></strong></h1>
+    </div>
+  </div>
+  <div class="accepted" style="display: none;">
+    <a class="retrun-btn btn btn-danger"><i class="fa fa-arrow-left"></i> Retour</a>
+    <div id="whitelist-list" class="vcenter">
+      <h1 class="text-center"><b>Whitelist :</b></h1>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>IP</th>
+            <th>Message</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="table-accepted">
+        </tbody>
+      </table>
+    </div>
+    <div id="whitelist-none" class="vcenter text-warning text-center" style="display: none;">
+      <h1><strong>Pas de demande de whitelist <i class="fa fa-frown-o"></i></strong></h1>
+    </div>
+  </div>
+  <div class="conf text-center" style="display: none;">
+    <a class="retrun-btn btn btn-danger"><i class="fa fa-arrow-left"></i> Retour</a>
+    <div class="vcenter">
+      <h1 class="text-center"><b>Personnalisation :</b></h1>
+      <div class="checkbox lead">
+        <p>
+          <label><input id="recaptcha-checkbox" type="checkbox">Activer le reCAPTCHA</label><br>
+          <span class="small text-danger">Si vous activez le reCAPTCHA, pensez à modifier la data site key dans web/index.html (ligne 60)</span>
+        </p>
+      </div>
+      <p class="lead">Le nom de votre serveur<br>
+        <textarea type="text" name="server-name-textarea" id="server-name-textarea" rows="1" class="form-control text-center" placeholder="LeMagnifique GTA RP"></textarea>
+      </p>
+      <p class="lead">L'IP de votre serveur<br>
+        <textarea type="text" name="server-ip-textarea" id="server-ip-textarea" rows="1" class="form-control text-center" placeholder="XXX.XXX.XXX.XXX"></textarea>
+      </p>
+      <p class="lead">Les informations que vous souhaitez que l'utilisateur renseigne<br>
+        <textarea type="text" name="requirement-textarea" id="requirement-textarea" rows="6" class="form-control text-center" placeholder="Exemple : Pour être whitelist sur le serveur GTA RP vous devez indiquer votre nom RP et vos motivations"></textarea>
+      </p>
+      <a class="btn btn-lg btn-default" id="save-btn">Enregistrer les changements</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.7.3/socket.io.min.js" integrity="sha256-WKvqiY0jZHWQZIohYEmr9KUC5rEaYEOFTq+ByllJK8w=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="panel/js/main.js"></script>
+  </div>
+</body>
+
+</html>
