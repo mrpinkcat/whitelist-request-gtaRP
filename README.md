@@ -1,5 +1,7 @@
 # Whitelist Request GTA-RP
 
+![](./screen.png)
+
 **CE PROJET N'EST PLUS MAINTENU, TANT AU NIVEAU DE SA SÉCURITÉ QU'AU NIVEAU DE SES FONCTIONALITÉS**
 
 Un système de demande de whitelist avec captcha, interface d’administration protégé par un mot de passe, interaction avec d'autres fichiers (.lua) et interface utilisateur.
@@ -49,6 +51,8 @@ npm run start
 ```
 
 ### Configuration en ligne
+![](./screen-config.png)
+
 Dirigez vous sur le panneau d'administration sur `/panel`.
 
 L'identifiant par défaut est `test` avec le mot de passe `test`, sauf si vous avez modifier le `panel.htpasswd` (ce qui est fortement conseillé).
