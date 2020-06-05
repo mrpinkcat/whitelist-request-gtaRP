@@ -61,6 +61,15 @@ h1 {
   left: 10px;
 }
 
+.col-md-3 {
+  border-bottom: 1px solid white;
+  padding-bottom: 5px;
+}
+.col-md-3:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
 /* spiner */
 
 .spinner {

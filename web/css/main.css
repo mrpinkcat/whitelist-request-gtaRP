@@ -66,6 +66,12 @@ h1 {
     width: 100%;
 }
 
+/* Mr Pink link */
+
+a.mrpink {
+    color: #ef5777;
+    text-decoration: underline;
+}
 
 /* spinner */
 

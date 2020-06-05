@@ -1,3 +1,6 @@
+let dotenv = require('dotenv');
+dotenv.config();
+
 const _PORT = process.env.PORT || 3000;
 
 var auth = require('http-auth'),
@@ -49,8 +52,10 @@ function getDataCheck(path) {
 }
 
 io.on('connection', function(socket) {
+  console.log('Connection détécté. Envois des informations de configuration.')
   socket.emit('config-info', getDataCheck('/recaptcha'), getDataCheck('/server-name'), getDataCheck('/server-ip'), getDataCheck('/requirement'));
   socket.on('send-ip-exp', function(ip, exp) {
+    console.log('Demande recu !');
     var obj = {
       "ip": ip,
       "exp": exp,
@@ -63,6 +68,7 @@ io.on('connection', function(socket) {
   });
 
   socket.on('admin-connect', function() {
+    console.log('Connection admin');
     socket.emit('send-db', getDataCheck('/ip'), getDataCheck('/recaptcha'), getDataCheck('/server-name'), getDataCheck('/server-ip'), getDataCheck('/requirement'));
   });
 

@@ -6,14 +6,15 @@ var ipbock,
   socket = io();
 
 $(document).ready(function() {
-  $.getJSON("http://ip-api.com/json/?callback=?", function(data) {
+  $.getJSON("https://api.ipify.org?format=json", function(data) {
     ipbock = false;
-    ip = data.query;
+    ip = data.ip;
   });
   ipbock = true;
 
   socket.on('config-info', function(recaptcha, serverName, serverIp, requirement) {
-    recaptchaState = recaptcha;
+    recaptchaState = (recaptcha == 'true');
+    console.log(recaptchaState);
     if (!recaptchaState)
       $('.g-recaptcha').hide();
     $('span#server-name').text(serverName);
